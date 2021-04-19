@@ -39,7 +39,7 @@ jobs:
         run: dotnet build -c Release --no-restore
         
       - name: Test
-        run: dotnet test -c Release --no-restor
+        run: dotnet test -c Release --no-restore
         
       - name: Find Versions
         id: version
@@ -62,6 +62,57 @@ jobs:
         with:
           name: nupkg
           path: ./nupkg/*.nupkg
+          
+  prerelease:
+    needs: build
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Download Artifact
+        uses: actions/download-artifact@v1
+        with:
+          name: nupkg
+
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 5.0.101
+
+      - name: Push to GitHub Feed
+        run: |
+          for f in ./nupkg/*.nupkg
+          do
+            dotnet nuget push $f --source $GITHUB_FEED --api-key ${{ secrets.GHCR_TOKEN }}
+          done
+          
+  release:
+    if: github.event_name == 'release'
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '5.0.x'
+
+      - name: Create Release NuGet package
+        run: |
+          arrTag=(${GITHUB_REF//\// })
+          VERSION="${arrTag[2]}"
+          VERSION="${VERSION//v}"
+          dotnet pack workspace-platform.sln -v normal -c Release --include-symbols --include-source -p:PackageVersion=$VERSION -o nupkg
+
+      - name: Push to GitHub Feed
+        run: |
+          for f in ./nupkg/*.nupkg
+          do
+            dotnet nuget push $f --source $GITHUB_FEED --api-key ${{ secrets.GHCR_TOKEN }}
+          done
+      
+    
+        
         
         
         
