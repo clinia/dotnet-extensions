@@ -4,7 +4,7 @@ using AutoFixture;
 using AutoFixture.AutoMoq;
 using AutoFixture.Xunit2;
 
-namespace Clinia.Testing
+namespace Clinia.Testing.AutoFixture
 {
     [AttributeUsage(AttributeTargets.Method)]
     public class AutoMoqDataAttribute : AutoDataAttribute
