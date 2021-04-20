@@ -102,7 +102,7 @@ jobs:
           arrTag=(${GITHUB_REF//\// })
           VERSION="${arrTag[2]}"
           VERSION="${VERSION//v}"
-          dotnet pack workspace-platform.sln -v normal -c Release --include-symbols --include-source -p:PackageVersion=$VERSION -o nupkg
+          dotnet pack -v normal -c Release --include-symbols --include-source -p:PackageVersion=$VERSION -o nupkg
 
       - name: Push to GitHub Feed
         run: |
