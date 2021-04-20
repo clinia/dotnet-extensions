@@ -7,5 +7,9 @@
   <ItemGroup>
     <ProjectReference Include="..\..\src\Clinia.Logging.AspNetCore\Clinia.Logging.AspNetCore.csproj" />
   </ItemGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Elastic.Apm.NetCoreAll" Version="1.9.0" />
+  </ItemGroup>
 
 </Project>
