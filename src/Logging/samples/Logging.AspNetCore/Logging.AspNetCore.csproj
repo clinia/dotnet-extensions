@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Clinia.Logging.AspNet\Clinia.Logging.AspNet.csproj" />
+    <ProjectReference Include="..\..\src\Clinia.Logging.AspNetCore\Clinia.Logging.AspNetCore.csproj" />
   </ItemGroup>
 
 </Project>
