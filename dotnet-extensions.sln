@@ -31,7 +31,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Logging", "Logging", "{E799
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{FCCE9013-C970-4A8D-9921-5DDF3BC257A6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clinia.Logging.AspNetCore", "src\Logging\src\Clinia.Logging.AspNetCore\Clinia.Logging.AspNetCore.csproj", "{889EF311-9D54-4173-89C0-711EF65020ED}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clinia.Logging.AspNet", "src\Logging\src\Clinia.Logging.AspNet\Clinia.Logging.AspNet.csproj", "{889EF311-9D54-4173-89C0-711EF65020ED}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{BA42BE4A-4767-4ADE-85FD-B497FA3DF569}"
 EndProject
