@@ -24,7 +24,7 @@ public class Pbkdf2Hasher : IHasher
     private readonly RandomNumberGenerator _rng;
 
     /// <summary>
-    ///     Creates a new instance of <see cref="Pbkdf2Hasher{TIdentity}" />
+    ///     Creates a new instance of <see cref="Pbkdf2Hasher" />
     /// </summary>
     /// <param name="optionsAccessor">The options for this instance</param>
     public Pbkdf2Hasher(Pbkdf2HasherOptions optionsAccessor = null)
